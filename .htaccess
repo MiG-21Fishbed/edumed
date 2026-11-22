@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Send every request into public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Block direct requests that include /public/ in the URL
+RewriteCond %{THE_REQUEST} \s/public/ [NC]
+RewriteRule ^ - [F]
