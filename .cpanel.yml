@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/edumedor/public_html/proba/
+    - /usr/bin/rsync -a --delete --exclude='.git/' --exclude='.cpanel.yml' --exclude='config.php' ./ "$DEPLOYPATH"
